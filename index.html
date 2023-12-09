@@ -5,7 +5,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Open+Sans&family=Roboto&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <link rel="stylesheet" href="/src/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,10 +20,12 @@
 
   <body>
     <div class="navbar">
-      <button id="open-btn">Open</button>
-      <button id="save-btn">Save</button>
-      <button id="save-as-btn">Save As</button>
+      <button id="open-btn"><i class="fas fa-folder-open"></i></button>
+      <button id="save-btn"><i class="fas fa-save"></i></button>
+      <button id="save-as-btn"><i class="fas fa-file-export"></i></button>
+      <button id="theme-toggle"><i class="fas fa-moon"></i></button>
     </div>
+    
   
     <div contenteditable="true" id="centered-textarea"></div>
   </body>

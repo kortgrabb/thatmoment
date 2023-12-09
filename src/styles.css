@@ -5,67 +5,96 @@ body {
   justify-content: center;
   align-items: flex-start;
   background-color: rgb(17, 17, 17);
-  font-family: 'Open Sans', sans-serif;
-  font-family: 'Roboto', sans-serif;
-  font-family: 'Source Code Pro', monospace;
+  color: white;
+  font-family: 'Libre Baskerville', serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 #centered-textarea {
   width: 40vw;
- /* Default width */
   margin-top: 50px;
   padding: 15px;
+  background-color: rgb(17, 17, 17);
   color: white;
   outline: none;
   font-size: large;
   box-sizing: border-box;
   line-height: 30px;
+  transition: inherit;
 }
-/* Media query for smaller screens */
+
+/* Light theme styles */
+.light-theme {
+  background-color: white;
+  color: black;
+}
+
+.light-theme #centered-textarea {
+  background-color: #fff;
+  color: black;
+}
+
+/* Media queries for responsive design */
 @media (max-width: 800px) {
   #centered-textarea {
-      width: 60vw;
-     /* Increase width as screen gets smaller */
- }
+    width: 60vw;
+  }
 }
-/* Media query for even smaller screens */
+
 @media (max-width: 600px) {
   #centered-textarea {
-      width: 70vw;
-     /* Further increase width for very small screens */
- }
+    width: 70vw;
+  }
 }
-/* Other styles remain unchanged */
+
+/* Scrollbar styles */
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #3a3a3a;
   border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+/* Navbar styles */
 .navbar {
   display: flex;
   padding: 10px;
-  background-color: #e0dede;
+  background-color: transparent;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
 }
+
 .navbar button {
-  padding: 5px 10px;
+  padding: 10px 15px;
   margin-left: 10px;
   cursor: pointer;
-  border: 2px solid rgb(70, 70, 70);
-  background-color: transparent;
+  border: none;
+  background-color: #1d1d1d;
+  color: white;
   border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s, box-shadow 0.2s, transform 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
 .navbar button:hover {
-  border: 2px solid rgb(110, 110, 110);
-  transition: 100ms;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.navbar button:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transform: translateY(1px);
 }

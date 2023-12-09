@@ -1,4 +1,4 @@
-import { writeTextFile, readTextFile } from '@tauri-apps/api/fs';
+import { writeTextFile, readTextFile, BaseDirectory } from '@tauri-apps/api/fs';
 import { open, save } from '@tauri-apps/api/dialog';
 
 let currentFilePath: any = null;
@@ -14,19 +14,12 @@ document.addEventListener('keydown', async function(event) {
     }
 });
 
-document.getElementById('centered-textarea')?.addEventListener('paste', (e) => {
-    e.preventDefault();
-
-    const clipText = e.clipboardData?.getData('text');
-
-    document.execCommand('insertText', false, clipText);
-})
+const textarea = document.getElementById('centered-textarea') as HTMLElement;
 
 document.getElementById('open-btn')?.addEventListener('click', async () => {
     const selectedPath: any = await open({ multiple: false, directory: false });
     if (selectedPath) {
         const content = await readTextFile(selectedPath);
-        const textarea = document.getElementById('centered-textarea') as HTMLElement;
         textarea.innerText = content;
         currentFilePath = selectedPath;
     }
@@ -45,24 +38,28 @@ document.getElementById('save-as-btn')?.addEventListener('click', async () => {
 });
 
 async function saveFile(): Promise<void> {
-    const content = (document.getElementById('centered-textarea') as HTMLElement).innerText;
+    const content = (textarea as HTMLElement).innerText;
     if (currentFilePath) {
         await writeTextFile(currentFilePath, content);
     }
 }
 
 async function saveFileAs(): Promise<void> {
-    const content = (document.getElementById('centered-textarea') as HTMLElement).innerText;
-    const savePath = await save();
+    const content = (textarea as HTMLElement).innerText;
+    const savePath = await save({
+        filters: [{
+            name: 'Text File',
+            extensions: ['txt']
+        }]
+    })
     if (savePath) {
         currentFilePath = savePath;
-        await writeTextFile(savePath, content);
+        await writeTextFile(savePath, content, { dir: BaseDirectory.Document });
     }
 }
 
 
 function adjustPadding() {
-    const textarea: any = document.getElementById('centered-textarea');
     const viewportHeight = window.innerHeight;
   
     // Calculate if content is taller than the viewport
@@ -74,10 +71,16 @@ function adjustPadding() {
   }
   
   // Adjust padding on content changes and window resize
-document.getElementById('centered-textarea')?.addEventListener('input', adjustPadding);
+textarea?.addEventListener('input', adjustPadding);
 window.addEventListener('resize', adjustPadding);
   
 // Initial adjustment
 setInterval(() => {
     adjustPadding();
 }, 500)
+
+
+// handle toggling theme
+document.getElementById('theme-toggle')?.addEventListener('click', function() {
+    document.body.classList.toggle('light-theme');
+});
