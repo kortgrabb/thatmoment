@@ -1,0 +1,27 @@
+# Dependency directories
+/node_modules/
+/src-tauri/target/
+/src-tauri/node_modules/
+
+# Tauri build output
+/dist/
+/build/
+/src-tauri/bin/
+/src-tauri/bundle/
+/src-tauri/target/
+
+# Debug log from npm
+npm-debug.log*
+
+# Environment Variables
+.env
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo

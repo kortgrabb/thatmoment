@@ -1,0 +1,71 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: rgb(17, 17, 17);
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Source Code Pro', monospace;
+}
+#centered-textarea {
+  width: 40vw;
+ /* Default width */
+  margin-top: 50px;
+  padding: 15px;
+  color: white;
+  outline: none;
+  font-size: large;
+  box-sizing: border-box;
+  line-height: 30px;
+}
+/* Media query for smaller screens */
+@media (max-width: 800px) {
+  #centered-textarea {
+      width: 60vw;
+     /* Increase width as screen gets smaller */
+ }
+}
+/* Media query for even smaller screens */
+@media (max-width: 600px) {
+  #centered-textarea {
+      width: 70vw;
+     /* Further increase width for very small screens */
+ }
+}
+/* Other styles remain unchanged */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.navbar {
+  display: flex;
+  padding: 10px;
+  background-color: #e0dede;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.navbar button {
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  border: 2px solid rgb(70, 70, 70);
+  background-color: transparent;
+  border-radius: 5px;
+}
+.navbar button:hover {
+  border: 2px solid rgb(110, 110, 110);
+  transition: 100ms;
+}
