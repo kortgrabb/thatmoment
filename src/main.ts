@@ -4,7 +4,6 @@ import { open, save } from '@tauri-apps/api/dialog';
 
 const textarea = document.getElementById('centered-textarea') as HTMLElement;
 const wordAmount = document.getElementById('word-amount') as HTMLElement;
-const editableButtons = document.getElementById('editable-buttons') as HTMLElement;
 const title = document.getElementById('document-title') as HTMLElement;
 
 let currentFilePath: any = null;
