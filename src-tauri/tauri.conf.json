@@ -17,6 +17,12 @@
         "all": false,
         "open": true
       },
+      "process": {
+        "all": true,
+        "exit": false,
+        "relaunch": false,
+        "relaunchDangerousAllowSymlinkMacos": false
+      },
       "dialog": {
         "all": true,
         "ask": false,
@@ -54,9 +60,12 @@
       {
         "fullscreen": false,
         "resizable": true,
-        "title": "thatmoment",
+        "title": "ThatMoment",
         "width": 800,
-        "height": 600
+        "height": 600,
+
+        "minHeight": 550,
+        "minWidth": 500
       }
     ]
   }
