@@ -1,6 +1,15 @@
 import { writeTextFile, readTextFile, BaseDirectory } from '@tauri-apps/api/fs';
 import { open, save } from '@tauri-apps/api/dialog';
 
+const textarea = document.getElementById('centered-textarea') as HTMLElement;
+const wordCountDisplay = document.getElementById('word-count') as HTMLElement;
+const toggleButtons = document.getElementById('toggle-buttons') as HTMLElement;
+const editableButtons = document.getElementById('editable-buttons') as HTMLElement;
+  
+toggleButtons.addEventListener('click', function() {
+    editableButtons.classList.toggle('hide');
+});
+
 let currentFilePath: any = null;
 
 document.addEventListener('keydown', async function(event) {
@@ -13,8 +22,6 @@ document.addEventListener('keydown', async function(event) {
       }
     }
 });
-
-const textarea = document.getElementById('centered-textarea') as HTMLElement;
 
 document.getElementById('open-btn')?.addEventListener('click', async () => {
     const selectedPath: any = await open({ multiple: false, directory: false });
@@ -77,6 +84,7 @@ window.addEventListener('resize', adjustPadding);
 // Initial adjustment
 setInterval(() => {
     adjustPadding();
+    updateWordCounter();
 }, 500)
 
 
@@ -84,3 +92,9 @@ setInterval(() => {
 document.getElementById('theme-toggle')?.addEventListener('click', function() {
     document.body.classList.toggle('light-theme');
 });
+
+function updateWordCounter() {
+    const text = textarea.innerText.trim();
+    const words = text.split(/\s+/).filter(function(n) { return n !== '' });
+    wordCountDisplay.textContent = `${words.length} Words written`;
+}

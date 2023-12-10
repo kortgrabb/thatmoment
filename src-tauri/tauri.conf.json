@@ -7,7 +7,7 @@
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "thatmoment",
+    "productName": "ThatMoment",
     "version": "0.0.0"
   },
   "tauri": {
