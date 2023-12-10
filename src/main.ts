@@ -85,6 +85,10 @@ window.addEventListener('resize', adjustPadding);
 setInterval(() => {
     adjustPadding();
     updateWordCounter();
+
+    if (currentFilePath) {
+        saveFile();
+    }
 }, 500)
 
 
