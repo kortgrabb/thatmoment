@@ -1,5 +1,5 @@
 # thatmoment
----
+
 ## Introduction
 
 "thatmoment" is a zen-like text editor designed with minimalism at its core. It's created to offer writers a serene and distraction-free environment, enhancing focus and creativity during their writing sessions.
