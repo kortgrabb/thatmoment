@@ -127,7 +127,6 @@ setInterval(() => {
     }
 }, 500)
 
-
 // handle toggling theme
 document.getElementById('theme-toggle')?.addEventListener('click', function() {
     document.body.classList.toggle('light-theme');
@@ -140,3 +139,13 @@ function updateWordCounter() {
 }
 
 window.addEventListener('DOMContentLoaded', handleStartupFile);
+
+// formatting
+document.getElementById('bold-btn')?.addEventListener('click', () => applyFormatting('bold'));
+document.getElementById('header-btn')?.addEventListener('click', () => applyFormatting('formatBlock', '<h2>'));
+document.getElementById('list-btn')?.addEventListener('click', () => applyFormatting('insertUnorderedList'));
+
+function applyFormatting(command: string, value = '') {
+    document.execCommand(command, false, value);
+}
+  

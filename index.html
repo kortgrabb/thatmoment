@@ -1,40 +1,50 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Open+Sans&family=Roboto&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <link rel="stylesheet" href="/src/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tauri App</title>
     <script type="module" src="/src/main.ts" defer></script>
-    <style>
-
-    </style>
-  </head>
-
+</head>
+<body>
   <body>
     <div class="navbar">
-      <div id="editable-buttons">
-        <button id="open-btn"><i class="fas fa-folder-open"></i> Open File</button>
-        <button id="save-btn"><i class="fas fa-save"></i> Save File</button>
-        <button id="save-as-btn"><i class="fas fa-file-export"></i> Save File As</button>
+        <!-- Dropdown for File Operations -->
+        <div class="dropdown">
+            <button class="dropbtn">File <i class="fas fa-caret-down"></i></button>
+            <div class="dropdown-content">
+                <button id="open-btn"><i class="fas fa-folder-open"></i> Open File</button>
+                <button id="save-btn"><i class="fas fa-save"></i> Save File</button>
+                <button id="save-as-btn"><i class="fas fa-file-export"></i> Save File As</button>
+                <button id="new-file-btn"><i class="fas fa-file"></i> New File</button>
+            </div>
+        </div>
+
+        <!-- Dropdown for Formatting -->
+        <div class="dropdown">
+            <button class="dropbtn">Formatting <i class="fas fa-caret-down"></i></button>
+            <div class="dropdown-content">
+                <button id="bold-btn"><i class="fas fa-bold"></i> Bold</button>
+                <button id="header-btn"><i class="fas fa-heading"></i> Header</button>
+                <button id="list-btn"><i class="fas fa-list"></i> List</button>
+            </div>
+        </div>
+
+        <!-- Theme Toggle -->
         <button id="theme-toggle"><i class="fas fa-moon"></i> Theme</button>
-        <button id="new-file-btn"><i class="fas fa-file"></i> New File</button>
-      </div>
     </div>
 
     <div class="header">
-      <h3 id="document-title">Untitled</h3>
-      <span id="word-count"><span id="word-amount">0</span> Words written</span>
+        <!-- ... your existing header content ... -->
     </div>
-    
-  
-    <div contenteditable="true" id="centered-textarea"></div>
-  </body>
+
+    <div contenteditable="true" id="centered-textarea">
+        <!-- Your editable text area -->
+    </div>
+</body>
 </html>
